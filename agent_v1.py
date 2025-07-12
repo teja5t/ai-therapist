@@ -1,4 +1,13 @@
 import together, traceback, json, re
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Set Together.ai API key if available in environment
+if os.getenv('TOGETHER_API_KEY'):
+    together.api_key = os.getenv('TOGETHER_API_KEY')
 
 # ========== RUNTIME CONSTANTS ==========
 MAX_CTX          = 2048
