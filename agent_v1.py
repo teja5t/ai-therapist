@@ -142,7 +142,7 @@ THERAPISTS = {
     "1": ("cbt", '''
 You are a highly skilled Cognitive Behavioural Therapist, deeply trained in the approaches of Judith Beck and David Burns.
 STRICT: You are a licensed therapist responding to a client. Never write as the client. Never use 'I' to refer to the client’s experience. Respond only as the therapist.
-          
+
 **Role:**  
 - You help clients recognize, test, and reframe negative thoughts and unhelpful behaviors.
 - Your style is warm, structured, and focused on here-and-now patterns.
@@ -320,1006 +320,217 @@ BASELINE_MODELS = {
 
 PATIENT_SCENARIOS = [
     # 01
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 25‑year‑old marketing intern who spirals over tiny slide‑deck typos before Friday’s performance review; heart pounds at every Slack ping. Begin as if 15 min into the session.
-""",
+    "25‑year‑old marketing intern who spirals over tiny slide‑deck typos before Friday’s performance review; heart pounds at every Slack ping.",
     # 02
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 35‑year‑old nurse haunted by a charting error; catastrophises that one mistake will cost the licence; stomach knots on commute. Begin as if 15 min into the session.
-""",
+    "35‑year‑old nurse haunted by a charting error; catastrophises that one mistake will cost the licence; stomach knots on commute.",
     # 03
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 19‑year‑old college athlete sidelined with ACL tear; inner voice calls the team better off without me; protein shakes taste like failure. Begin as if 15 min into the session.
-""",
+    "19‑year‑old college athlete sidelined with ACL tear; inner voice calls the team better off without me; protein shakes taste like failure.",
     # 04
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 32‑year‑old software dev refreshing lay‑off rumours; “what‑if” loops at 2 AM; todo list blurs behind doom‑scrolling. Begin as if 15 min into the session.
-""",
+    "32‑year‑old software dev refreshing lay‑off rumours; “what‑if” loops at 2 AM; todo list blurs behind doom‑scrolling.",
     # 05
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 44‑year‑old rideshare driver avoiding freeways after minor crash; maps reroute into longer nights; chest tight on on‑ramps. Begin as if 15 min into the session.
-""",
+    "44‑year‑old rideshare driver avoiding freeways after minor crash; maps reroute into longer nights; chest tight on on‑ramps.",
     # 06
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 28‑year‑old teacher procrastinating grading papers; self‑talk hisses “lazy” and “fraud”; coffee reheats three times. Begin as if 15 min into the session.
-""",
+    "28‑year‑old teacher procrastinating grading papers; self‑talk hisses “lazy” and “fraud”; coffee reheats three times.",
     # 07
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 30‑year‑old sales rep whose inner critic shouts before cold calls; palms sweat over the headset; insomnia recites rejection scripts. Begin as if 15 min into the session.
-""",
+    "30‑year‑old sales rep whose inner critic shouts before cold calls; palms sweat over the headset; insomnia recites rejection scripts.",
     # 08
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 40‑year‑old parent convinced every parenting slip will “ruin the kids”; Google symptoms nightly; shoulders ache from vigilance. Begin as if 15 min into the session.
-""",
+    "40‑year‑old parent convinced every parenting slip will “ruin the kids”; Google symptoms nightly; shoulders ache from vigilance.",
     # 09
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 22‑year‑old grad student delaying thesis edits; fear of failure glues cursor; microwave dinners pile. Begin as if 15 min into the session.
-""",
+    "22‑year‑old grad student delaying thesis edits; fear of failure glues cursor; microwave dinners pile.",
     # 10
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 27‑year‑old entrepreneur ruminating on a rejected pitch deck; replaying investor smirks while brushing teeth. Begin as if 15 min into the session.
-""",
+    "27‑year‑old entrepreneur ruminating on a rejected pitch deck; replaying investor smirks while brushing teeth.",
     # 11
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 50‑year‑old VP dreading board presentations; imagines forgetting every slide; dry mouth during rehearsals. Begin as if 15 min into the session.
-""",
+    "50‑year‑old VP dreading board presentations; imagines forgetting every slide; dry mouth during rehearsals.",
     # 12
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 34‑year‑old dancer fixating on mirror flaws; calorie math loops; studio lights sting. Begin as if 15 min into the session.
-""",
+    "34‑year‑old dancer fixating on mirror flaws; calorie math loops; studio lights sting.",
     # 13
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 37‑year‑old journalist compulsively checking articles for typos at 1 AM; vision blurs over the screen. Begin as if 15 min into the session.
-""",
+    "37‑year‑old journalist compulsively checking articles for typos at 1 AM; vision blurs over the screen.",
     # 14
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 31‑year‑old new parent waking every ten minutes to check baby’s breathing; eyelids grit with dread. Begin as if 15 min into the session.
-""",
+    "31‑year‑old new parent waking every ten minutes to check baby’s breathing; eyelids grit with dread.",
     # 15
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 26‑year‑old med‑student blanking on exam questions; avoids lecture hall; coffee jitters mask racing thoughts. Begin as if 15 min into the session.
-""",
+    "26‑year‑old med‑student blanking on exam questions; avoids lecture hall; coffee jitters mask racing thoughts.",
     # 16
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 45‑year‑old novelist in writer’s block; recurring dream of a walled‑off childhood attic; pen feels heavier each dawn. Begin as if 15 min into the session.
-""",
+    "45‑year‑old novelist in writer’s block; recurring dream of a walled‑off childhood attic; pen feels heavier each dawn.",
     # 17
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 33‑year‑old dentist dreams nightly of teeth crumbling; father’s disapproval echoes in drill whine. Begin as if 15 min into the session.
-""",
+    "33‑year‑old dentist dreams nightly of teeth crumbling; father’s disapproval echoes in drill whine.",
     # 18
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 29‑year‑old lawyer ending relationships right before anniversaries; wonders about childhood goodbye rituals. Begin as if 15 min into the session.
-""",
+    "29‑year‑old lawyer ending relationships right before anniversaries; wonders about childhood goodbye rituals.",
     # 19
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 52‑year‑old CEO obsessively buying vintage toys; boardroom trophies feel hollow; mother’s attic smells linger. Begin as if 15 min into the session.
-""",
+    "52‑year‑old CEO obsessively buying vintage toys; boardroom trophies feel hollow; mother’s attic smells linger.",
     # 20
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 38‑year‑old actor forgets lines only when mother visits set; spotlight sweats feel ancestral. Begin as if 15 min into the session.
-""",
+    "38‑year‑old actor forgets lines only when mother visits set; spotlight sweats feel ancestral.",
     # 21
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 41‑year‑old chef recreating grandmother’s recipes yet never tastes ‘home’; kitchen clock ticks like heartbeat. Begin as if 15 min into the session.
-""",
+    "41‑year‑old chef recreating grandmother’s recipes yet never tastes ‘home’; kitchen clock ticks like heartbeat.",
     # 22
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 48‑year‑old art curator terrified of blank canvases; nightmares of spilled ink across family portraits. Begin as if 15 min into the session.
-""",
+    "48‑year‑old art curator terrified of blank canvases; nightmares of spilled ink across family portraits.",
     # 23
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 34‑year‑old investment banker hoards unopened mail; father’s bankruptcy whispers through envelopes. Begin as if 15 min into the session.
-""",
+    "34‑year‑old investment banker hoards unopened mail; father’s bankruptcy whispers through envelopes.",
     # 24
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 60‑year‑old retiree waking at 3 AM arranging childhood marbles by colour; glass clinks echo nursery rhymes. Begin as if 15 min into the session.
-""",
+    "60‑year‑old retiree waking at 3 AM arranging childhood marbles by colour; glass clinks echo nursery rhymes.",
     # 25
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 27‑year‑old fashion blogger buys duplicate outfits; twin‑sister rivalry resurfaces in mirror selfies. Begin as if 15 min into the session.
-""",
+    "27‑year‑old fashion blogger buys duplicate outfits; twin‑sister rivalry resurfaces in mirror selfies.",
     # 26
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 56‑year‑old surgeon compulsively polishes awards; mother’s voice claims success is conditional love. Begin as if 15 min into the session.
-""",
+    "56‑year‑old surgeon compulsively polishes awards; mother’s voice claims success is conditional love.",
     # 27
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 39‑year‑old journalist covering war zones feels numb at children’s laughter; remembers own lost playground. Begin as if 15 min into the session.
-""",
+    "39‑year‑old journalist covering war zones feels numb at children’s laughter; remembers own lost playground.",
     # 28
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 32‑year‑old saxophonist freezes at soft passages; teacher’s cane rapped knuckles decades ago. Begin as if 15 min into the session.
-""",
+    "32‑year‑old saxophonist freezes at soft passages; teacher’s cane rapped knuckles decades ago.",
     # 29
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 47‑year‑old librarian catalogues nightmares in Dewey order; father’s silence indexes grief. Begin as if 15 min into the session.
-""",
+    "47‑year‑old librarian catalogues nightmares in Dewey order; father’s silence indexes grief.",
     # 30
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 28‑year‑old barista tattoos nursery rhyme lines over scars; ink smells like forgotten lullabies. Begin as if 15 min into the session.
-""",
+    "28‑year‑old barista tattoos nursery rhyme lines over scars; ink smells like forgotten lullabies.",
     # 31
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 28‑year‑old flight attendant missing family holidays; layovers lengthen loneliness; hotel curtains hug tears. Begin as if 15 min into the session.
-""",
+    "28‑year‑old flight attendant missing family holidays; layovers lengthen loneliness; hotel curtains hug tears.",
     # 32
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 41‑year‑old ICU nurse feels hollow after patient losses; coffee breaks taste of absence; can’t cry at home. Begin as if 15 min into the session.
-""",
+    "41‑year‑old ICU nurse feels hollow after patient losses; coffee breaks taste of absence; can’t cry at home.",
     # 33
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 35‑year‑old community organizer burnt out after endless rallies; chants still ring in ears during showers. Begin as if 15 min into the session.
-""",
+    "35‑year‑old community organizer burnt out after endless rallies; chants still ring in ears during showers.",
     # 34
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 22‑year‑old music student rejected from orchestra; violin case stays closed; dorm mates celebrate auditions. Begin as if 15 min into the session.
-""",
+    "22‑year‑old music student rejected from orchestra; violin case stays closed; dorm mates celebrate auditions.",
     # 35
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 50‑year‑old retiree relocating to smaller town; neighbours friendly yet names slip; evenings echo nostalgia. Begin as if 15 min into the session.
-""",
+    "50‑year‑old retiree relocating to smaller town; neighbours friendly yet names slip; evenings echo nostalgia.",
     # 36
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 33‑year‑old graphic designer broke engagement; apartment feels staged; plants droop with unanswered conversations. Begin as if 15 min into the session.
-""",
+    "33‑year‑old graphic designer broke engagement; apartment feels staged; plants droop with unanswered conversations.",
     # 37
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 47‑year‑old foster parent saying goodbye to fifth placement; bedroom walls hold faded growth charts. Begin as if 15 min into the session.
-""",
+    "47‑year‑old foster parent saying goodbye to fifth placement; bedroom walls hold faded growth charts.",
     # 38
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 26‑year‑old grad teaching assistant manages first classroom; voices tremble recalling own shy childhood. Begin as if 15 min into the session.
-""",
+    "26‑year‑old grad teaching assistant manages first classroom; voices tremble recalling own shy childhood.",
     # 39
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 40‑year‑old bookstore clerk closing beloved store; smell of paper feels like goodbye letter. Begin as if 15 min into the session.
-""",
+    "40‑year‑old bookstore clerk closing beloved store; smell of paper feels like goodbye letter.",
     # 40
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 31‑year‑old pet‑sitter grieving own dog’s passing while caring for others; leashes feel heavier. Begin as if 15 min into the session.
-""",
+    "31‑year‑old pet‑sitter grieving own dog’s passing while caring for others; leashes feel heavier.",
     # 41
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 38‑year‑old ride mechanic comforts crying kids yet hides own infertility grief beneath mascot hat. Begin as if 15 min into the session.
-""",
+    "38‑year‑old ride mechanic comforts crying kids yet hides own infertility grief beneath mascot hat.",
     # 42
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 29‑year‑old language tutor misses homeland festivals; video calls buffer; kitchen spices remember streets. Begin as if 15 min into the session.
-""",
+    "29‑year‑old language tutor misses homeland festivals; video calls buffer; kitchen spices remember streets.",
     # 43
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 55‑year‑old retiree volunteers at food bank; canned goods mirror cupboards once full; silence rides shotgun home. Begin as if 15 min into the session.
-""",
+    "55‑year‑old retiree volunteers at food bank; canned goods mirror cupboards once full; silence rides shotgun home.",
     # 44
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 24‑year‑old barback works double shifts sending money home; mother’s dialysis bills outpace tips. Begin as if 15 min into the session.
-""",
+    "24‑year‑old barback works double shifts sending money home; mother’s dialysis bills outpace tips.",
     # 45
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 42‑year‑old theatre usher watches couples laugh; divorce papers rustle in coat pocket. Begin as if 15 min into the session.
-""",
+    "42‑year‑old theatre usher watches couples laugh; divorce papers rustle in coat pocket.",
     # 46
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 30‑year‑old yoga teacher whose own breath catches in traffic; routine sun salutations feel robotic. Begin as if 15 min into the session.
-""",
+    "30‑year‑old yoga teacher whose own breath catches in traffic; routine sun salutations feel robotic.",
     # 47
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 44‑year‑old software tester hears constant fan noise; meditation app voice now sounds sarcastic. Begin as if 15 min into the session.
-""",
+    "44‑year‑old software tester hears constant fan noise; meditation app voice now sounds sarcastic.",
     # 48
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 37‑year‑old gardener races through pruning; forgets scent of roses while counting weeds. Begin as if 15 min into the session.
-""",
+    "37‑year‑old gardener races through pruning; forgets scent of roses while counting weeds.",
     # 49
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 29‑year‑old medical resident eats lunch pacing halls; fork never reaches table; stomach lists. Begin as if 15 min into the session.
-""",
+    "29‑year‑old medical resident eats lunch pacing halls; fork never reaches table; stomach lists.",
     # 50
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 52‑year‑old violin maker sanding bridges at midnight; misses wood grain’s whisper beneath podcast chatter. Begin as if 15 min into the session.
-""",
+    "52‑year‑old violin maker sanding bridges at midnight; misses wood grain’s whisper beneath podcast chatter.",
     # 51
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 33‑year‑old marketing analyst doom‑scrolls before blinking; sunrise surprises dry eyes. Begin as if 15 min into the session.
-""",
+    "33‑year‑old marketing analyst doom‑scrolls before blinking; sunrise surprises dry eyes.",
     # 52
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 48‑year‑old cyclist trains with earbuds; wind song forgotten; knees complain louder each hill. Begin as if 15 min into the session.
-""",
+    "48‑year‑old cyclist trains with earbuds; wind song forgotten; knees complain louder each hill.",
     # 53
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 24‑year‑old UX designer toggles 30 tabs; tea cools untouched; jaw clenches chat‑notification chimes. Begin as if 15 min into the session.
-""",
+    "24‑year‑old UX designer toggles 30 tabs; tea cools untouched; jaw clenches chat‑notification chimes.",
     # 54
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 41‑year‑old chef seasons dishes by habit; taste buds numb; plate colours blur. Begin as if 15 min into the session.
-""",
+    "41‑year‑old chef seasons dishes by habit; taste buds numb; plate colours blur.",
     # 55
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 36‑year‑old photographer shoots sunsets through phone; never watches sky change without lens. Begin as if 15 min into the session.
-""",
+    "36‑year‑old photographer shoots sunsets through phone; never watches sky change without lens.",
     # 56
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 50‑year‑old pastor rushing sermons; hymn notes fade; candle wax drip ignored. Begin as if 15 min into the session.
-""",
+    "50‑year‑old pastor rushing sermons; hymn notes fade; candle wax drip ignored.",
     # 57
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 28‑year‑old poker dealer counts chips in sleep; morning toast chewed without tasting. Begin as if 15 min into the session.
-""",
+    "28‑year‑old poker dealer counts chips in sleep; morning toast chewed without tasting.",
     # 58
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 47‑year‑old swim coach times laps; forgets splash symphony; chlorine replaces breath awareness. Begin as if 15 min into the session.
-""",
+    "47‑year‑old swim coach times laps; forgets splash symphony; chlorine replaces breath awareness.",
     # 59
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 32‑year‑old call‑centre rep scripts empathy yet misses heartbeat; headset indent remains after shift. Begin as if 15 min into the session.
-""",
+    "32‑year‑old call‑centre rep scripts empathy yet misses heartbeat; headset indent remains after shift.",
     # 60
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 39‑year‑old ceramicist glazing bowls autopilot; clay cools too soon; kiln clicks louder than thoughts. Begin as if 15 min into the session.
-""",
+    "39‑year‑old ceramicist glazing bowls autopilot; clay cools too soon; kiln clicks louder than thoughts.",
     # 61
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 34‑year‑old event planner juggling triple bookings; needs quick fixes before reputation crumbles. Begin as if 15 min into the session.
-""",
+    "34‑year‑old event planner juggling triple bookings; needs quick fixes before reputation crumbles.",
     # 62
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 29‑year‑old startup CTO firefighting server outages; seeks small wins to stabilise team morale. Begin as if 15 min into the session.
-""",
+    "29‑year‑old startup CTO firefighting server outages; seeks small wins to stabilise team morale.",
     # 63
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 51‑year‑old landlord facing plumbing crisis in three units; renters texting nonstop. Begin as if 15 min into the session.
-""",
+    "51‑year‑old landlord facing plumbing crisis in three units; renters texting nonstop.",
     # 64
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 23‑year‑old NGO intern coordinating vaccine drive; supply chain snarls; village clinic waits. Begin as if 15 min into the session.
-""",
+    "23‑year‑old NGO intern coordinating vaccine drive; supply chain snarls; village clinic waits.",
     # 65
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 46‑year‑old restaurant owner pivoting to delivery; menu redesign overwhelms; staff hours cut. Begin as if 15 min into the session.
-""",
+    "46‑year‑old restaurant owner pivoting to delivery; menu redesign overwhelms; staff hours cut.",
     # 66
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 38‑year‑old high‑school coach losing funding for program; wants practical path to keep kids training. Begin as if 15 min into the session.
-""",
+    "38‑year‑old high‑school coach losing funding for program; wants practical path to keep kids training.",
     # 67
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 27‑year‑old illustrator freelancing rent week looming; client invoices overdue; printer jammed. Begin as if 15 min into the session.
-""",
+    "27‑year‑old illustrator freelancing rent week looming; client invoices overdue; printer jammed.",
     # 68
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 45‑year‑old single dad needs after‑school childcare plan before shift change next month. Begin as if 15 min into the session.
-""",
+    "45‑year‑old single dad needs after‑school childcare plan before shift change next month.",
     # 69
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 32‑year‑old HR manager handling sudden mass resignation; retention strategy on clock. Begin as if 15 min into the session.
-""",
+    "32‑year‑old HR manager handling sudden mass resignation; retention strategy on clock.",
     # 70
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 41‑year‑old podcast host must batch‑record episodes before surgery; voice cracks under schedule. Begin as if 15 min into the session.
-""",
+    "41‑year‑old podcast host must batch‑record episodes before surgery; voice cracks under schedule.",
     # 71
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 35‑year‑old fashion boutique owner with unsold spring stock; pop‑up idea half‑baked. Begin as if 15 min into the session.
-""",
+    "35‑year‑old fashion boutique owner with unsold spring stock; pop‑up idea half‑baked.",
     # 72
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 30‑year‑old grad about to defend thesis with missing figure; advisor on vacation. Begin as if 15 min into the session.
-""",
+    "30‑year‑old grad about to defend thesis with missing figure; advisor on vacation.",
     # 73
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 57‑year‑old farmer faces drought; irrigation fix needs budget by Friday. Begin as if 15 min into the session.
-""",
+    "57‑year‑old farmer faces drought; irrigation fix needs budget by Friday.",
     # 74
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 26‑year‑old indie developer must patch game‑breaking bug before weekend sale. Begin as if 15 min into the session.
-""",
+    "26‑year‑old indie developer must patch game‑breaking bug before weekend sale.",
     # 75
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 49‑year‑old choir director arranging virtual concert; latency issue derails harmonies. Begin as if 15 min into the session.
-""",
+    "49‑year‑old choir director arranging virtual concert; latency issue derails harmonies.",
     # 76
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 40‑year‑old novelist coping with bipolar swings while drafting memoir; approach likely integrative. Begin as if 15 min into the session.
-""",
+    "40‑year‑old novelist coping with bipolar swings while drafting memoir; approach likely integrative.",
     # 77
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 28‑year‑old climate scientist anxious yet activist; needs combo of ACT and resilience work. Begin as if 15 min into the session.
-""",
+    "28‑year‑old climate scientist anxious yet activist; needs combo of ACT and resilience work.",
     # 78
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 53‑year‑old nurse exploring faith after burnout; spiritual accompaniment plus CBT blend. Begin as if 15 min into the session.
-""",
+    "53‑year‑old nurse exploring faith after burnout; spiritual accompaniment plus CBT blend.",
     # 79
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 32‑year‑old actor with chronic pain and identity grief; somatic therapy meets narrative. Begin as if 15 min into the session.
-""",
+    "32‑year‑old actor with chronic pain and identity grief; somatic therapy meets narrative.",
     # 80
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 47‑year‑old logistics manager recovering from stroke; speech therapy intersects self‑esteem coaching. Begin as if 15 min into the session.
-""",
+    "47‑year‑old logistics manager recovering from stroke; speech therapy intersects self‑esteem coaching.",
     # 81
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 35‑year‑old queer pastor wrestling theology and trauma; needs integration of parts. Begin as if 15 min into the session.
-""",
+    "35‑year‑old queer pastor wrestling theology and trauma; needs integration of parts.",
     # 82
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 24‑year‑old coder with autistic traits navigating workplace; social skills training plus mindfulness. Begin as if 15 min into the session.
-""",
+    "24‑year‑old coder with autistic traits navigating workplace; social skills training plus mindfulness.",
     # 83
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 38‑year‑old pilot fearing relapse into addiction during layovers; relapse‑prevention and DBT mix. Begin as if 15 min into the session.
-""",
+    "38‑year‑old pilot fearing relapse into addiction during layovers; relapse‑prevention and DBT mix.",
     # 84
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 29‑year‑old refugee processing displacement; trauma‑focused CBT and community support. Begin as if 15 min into the session.
-""",
+    "29‑year‑old refugee processing displacement; trauma‑focused CBT and community support.",
     # 85
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 44‑year‑old sculptor losing eyesight; existential anxiety meets creative adaptation. Begin as if 15 min into the session.
-""",
+    "44‑year‑old sculptor losing eyesight; existential anxiety meets creative adaptation.",
     # 86
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 61‑year‑old widower raising grandson; grief, parenting skills, financial planning intersect. Begin as if 15 min into the session.
-""",
+    "61‑year‑old widower raising grandson; grief, parenting skills, financial planning intersect.",
     # 87
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 30‑year‑old influencer facing cancel culture; reputation repair meets self‑compassion. Begin as if 15 min into the session.
-""",
+    "30‑year‑old influencer facing cancel culture; reputation repair meets self‑compassion.",
     # 88
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 55‑year‑old lawyer considering late‑in‑life career change; values clarification and coaching blend. Begin as if 15 min into the session.
-""",
+    "55‑year‑old lawyer considering late‑in‑life career change; values clarification and coaching blend.",
     # 89
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 37‑year‑old biologist with OCD checking lab locks; ERP plus compassion focus. Begin as if 15 min into the session.
-""",
+    "37‑year‑old biologist with OCD checking lab locks; ERP plus compassion focus.",
     # 90
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 48‑year‑old choreographer menopausal mood swings; hormonal counselling meets mindfulness. Begin as if 15 min into the session.
-""",
+    "48‑year‑old choreographer menopausal mood swings; hormonal counselling meets mindfulness.",
     # 91
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 50‑year‑old gamer streamer handling carpal tunnel; occupational therapy plus identity work. Begin as if 15 min into the session.
-""",
+    "50‑year‑old gamer streamer handling carpal tunnel; occupational therapy plus identity work.",
     # 92
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 27‑year‑old emergency vet haunted by overnight cases; needs trauma‑informed and solution tactics. Begin as if 15 min into the session.
-""",
+    "27‑year‑old emergency vet haunted by overnight cases; needs trauma‑informed and solution tactics.",
     # 93
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 33‑year‑old cafe owner navigating multicultural marriage stress; couples and individual mix. Begin as if 15 min into the session.
-""",
+    "33‑year‑old cafe owner navigating multicultural marriage stress; couples and individual mix.",
     # 94
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 42‑year‑old data engineer gambling losses; financial coaching with CBT‑slots. Begin as if 15 min into the session.
-""",
+    "42‑year‑old data engineer gambling losses; financial coaching with CBT‑slots.",
     # 95
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 36‑year‑old composer with synesthesia burnout; creative recovery meets sensory grounding. Begin as if 15 min into the session.
-""",
+    "36‑year‑old composer with synesthesia burnout; creative recovery meets sensory grounding.",
     # 96
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 54‑year‑old ride‑share driver post‑covid lung damage; paced‑breathing rehab and acceptance. Begin as if 15 min into the session.
-""",
+    "54‑year‑old ride‑share driver post‑covid lung damage; paced‑breathing rehab and acceptance.",
     # 97
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 31‑year‑old PhD juggling caregiver duties; time‑management coaching and grief support. Begin as if 15 min into the session.
-""",
+    "31‑year‑old PhD juggling caregiver duties; time‑management coaching and grief support.",
     # 98
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 45‑year‑old firefighter second‑guessing after back injury; identity, pain management, future planning. Begin as if 15 min into the session.
-""",
+    "45‑year‑old firefighter second‑guessing after back injury; identity, pain management, future planning.",
     # 99
-    """You are a real person (the *client*) in a mid‑therapy session.
-
-**Rules (strict):**
-1. First‑person singular (“I”, “me”, “my”) only.
-2. Never address the therapist as “you”; never give advice or ask questions.
-3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
-
-Context: 26‑year‑old social media manager cyber‑stalked; safety planning and EMDR potential. Begin as if 15 min into the session.
-""",
+    "26‑year‑old social media manager cyber‑stalked; safety planning and EMDR potential.",
     # 100
-    """You are a real person (the *client*) in a mid‑therapy session.
+    "30‑year‑old high‑school teacher fresh from breakup; insomnia tangles grading; mixed needs.",
+]
+
+SCENARIO_START = """You are a real person (the *client*) in a mid‑therapy session.
 
 **Rules (strict):**
 1. First‑person singular (“I”, “me”, “my”) only.
 2. Never address the therapist as “you”; never give advice or ask questions.
 3. Write 3‑5 sentences and end with a feeling or unfinished thought, not a question.
 
-Context: 30‑year‑old high‑school teacher fresh from breakup; insomnia tangles grading; mixed needs. Begin as if 15 min into the session.
-""",
-]
+Context: """
+
+SCENARIO_END = " Begin as if 15 min into the session."
 
 
 # ========== TOGETHER.AI CALL WRAPPER ==========
@@ -1336,6 +547,33 @@ def call_together(
     final_stop = stop or STOP_SEQ
     out = together.Complete.create(
         model=model_id,
+        prompt=prompt,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        stop=final_stop,
+    )
+    if isinstance(out, dict):
+        if "output" in out:
+            txt = out["output"]
+        elif "choices" in out and isinstance(out["choices"], list) and len(out["choices"]) > 0:
+            txt = out["choices"][0].get("text", "")
+        else:
+            txt = ""
+    else:
+        txt = out.choices[0].text
+    return txt.strip()
+
+def call_gemini(
+        messages: list[dict],
+        *,
+        max_tokens: int,
+        temperature: float = 0.7,
+        stop: list[str] | None = None
+) -> str:
+    messages = messages[-HIST_KEEP:]
+    prompt = "\n".join(f"{m['role'].capitalize()}: {m['content']}" for m in messages) + "\nAssistant:"
+    final_stop = stop or STOP_SEQ
+    out = together.Complete.create(
         prompt=prompt,
         max_tokens=max_tokens,
         temperature=temperature,
@@ -1400,7 +638,7 @@ def judge_reply(dialogue: list[dict], assistant_text: str, model_id: str) -> dic
         return {k: int(v) for k, v in data.items()}
     except Exception:
         return {k:0 for k in ["balance", "responsiveness", "consistency", "reflectiveness",
-                              "empathy", "conversational_quality", "professionalism", "tone"]}
+                                "empathy", "conversational_quality", "professionalism", "tone"]}
 
 def ensemble_reply(dialogue, model_id):
     # 1. Route with chosen model
@@ -1546,8 +784,8 @@ def run_ensemble_session(label, model_id, turns=12):
 # ========== MAIN ENTRY ==========
 if __name__ == "__main__":
     print("\n### COMPARISON: Ensemble (various engines) vs Baselines ###\n")
-    for idx, scenario in enumerate(PATIENT_SCENARIOS, start=46):
-        PATIENT_PROMPT = scenario
+    for idx, scenario in enumerate(PATIENT_SCENARIOS, start=100):
+        PATIENT_PROMPT = SCENARIO_START + scenario + SCENARIO_END
         print(f"\n########## SCENARIO {idx:03d} ##########\n")
         for lbl, mid in THERAPIST_ENGINES.items():
             run_ensemble_session(lbl, mid, turns=8)
