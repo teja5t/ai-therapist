@@ -1,13 +1,14 @@
-import together, traceback, json, re
+import traceback, json, re
+from google import genai
 import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
-# Set Together.ai API key if available in environment
-if os.getenv('TOGETHER_API_KEY'):
-    together.api_key = os.getenv('TOGETHER_API_KEY')
+
+# The client gets the API key from the environment variable `GEMINI_API_KEY`.
+client = genai.Client()
 
 # ========== RUNTIME CONSTANTS ==========
 MAX_CTX          = 2048
@@ -566,49 +567,37 @@ def call_together(
 def call_gemini(
         messages: list[dict],
         *,
-        max_tokens: int,
         temperature: float = 0.7,
-        stop: list[str] | None = None
 ) -> str:
-    messages = messages[-HIST_KEEP:]
     prompt = "\n".join(f"{m['role'].capitalize()}: {m['content']}" for m in messages) + "\nAssistant:"
-    final_stop = stop or STOP_SEQ
-    out = together.Complete.create(
-        prompt=prompt,
-        max_tokens=max_tokens,
-        temperature=temperature,
-        stop=final_stop,
+    #print(prompt)
+    
+    response = client.models.generate_content(
+        model="gemini-2.5-flash", contents=prompt
     )
-    if isinstance(out, dict):
-        if "output" in out:
-            txt = out["output"]
-        elif "choices" in out and isinstance(out["choices"], list) and len(out["choices"]) > 0:
-            txt = out["choices"][0].get("text", "")
-        else:
-            txt = ""
-    else:
-        txt = out.choices[0].text
-    return txt.strip()
+    
+    return response.text
 
 # ========== AGGREGATION + ENSEMBLE LOGIC ==========
 
-def router(dialogue, model_id):
+def router(dialogue):
     msgs = [
         {"role": "system", "content": "Router"},
         {"role": "user", "content": BRAIN_PROMPT.format(user_input=dialogue[-1]['content'])},
     ]
-    digits = call_together(model_id, msgs, max_tokens=64, temperature=0.5)
+    digits = call_gemini(msgs, temperature=0.5)
     return "".join(d for d in digits if d in THERAPISTS) or "2"
 
-def drafts(dialogue, digits, model_id):
+def drafts(dialogue, digits):
     out = {}
     for d in digits:
         name, sys_prompt = THERAPISTS[d]
         msgs = [{"role": "system", "content": sys_prompt}] + dialogue[-HIST_KEEP:]
-        out[name] = call_together(model_id, msgs, max_tokens=THERA_MAX_TOKENS, temperature=0.8)
+        out[name] = call_gemini(msgs, temperature=0.8)
+    #print(out)
     return out
 
-def aggregate_with_model(model_id, drafts_dict):
+def aggregate_with_gemini(drafts_dict):
     # Label each draft for clarity
     drafts_concat = ""
     for style, text in drafts_dict.items():
@@ -617,7 +606,7 @@ def aggregate_with_model(model_id, drafts_dict):
         {"role": "system", "content": AGGREGATOR_PROMPT + "\nNever use first-person statements as if you are the client. Always write as the therapist."},
         {"role": "user", "content": drafts_concat}
     ]
-    return call_together(model_id, msgs, max_tokens=THERA_MAX_TOKENS)
+    return call_gemini(msgs)
 
 
 def judge_reply(dialogue: list[dict], assistant_text: str, model_id: str) -> dict:
@@ -640,59 +629,40 @@ def judge_reply(dialogue: list[dict], assistant_text: str, model_id: str) -> dic
         return {k:0 for k in ["balance", "responsiveness", "consistency", "reflectiveness",
                                 "empathy", "conversational_quality", "professionalism", "tone"]}
 
-def ensemble_reply(dialogue, model_id):
+def ensemble_reply(dialogue):
     # 1. Route with chosen model
-    digits = router(dialogue, model_id)
-    drafts_d = drafts(dialogue, digits, model_id)
+    digits = router(dialogue)
+    drafts_d = drafts(dialogue, digits)
+    
+    agg_reply = aggregate_with_gemini(drafts_d)
+    dialogue.append({"role": "assistant", "content": agg_reply})
+    #print(agg_reply)
 
-    # --- DEBUG: Print the drafts before aggregation ---
-    #print("\n===== THERAPIST DRAFTS =====")
-    #for name, draft in drafts_d.items():
-    #    print(f"\n{name} Draft:\n{draft}\n")
-    #print("============================\n")
-
-    # 2. Aggregate with EACH aggregator model
-    aggregation_results = {}
-    for lbl, agg_model in AGGREGATOR_MODELS.items():
-        agg_reply = aggregate_with_model(agg_model, drafts_d)
-        aggregation_results[lbl] = agg_reply
-
+    #if using gemini, we only use one model so we cant judge results of many different aggregator models.
     # 3. Judge each aggregation using same model as this run (model_id)
-    judged = []
-    for lbl, agg_reply in aggregation_results.items():
-        scores = judge_reply(dialogue, agg_reply, model_id)
-        total_score = sum(scores.values())
-        judged.append((lbl, agg_reply, total_score, scores))
-    judged.sort(key=lambda x: x[2], reverse=True)
-    best_lbl, best_text, best_score, best_scores = judged[0]
+    #judged = []
+    #for lbl, agg_reply in aggregation_results.items():
+        #scores = judge_reply(dialogue, agg_reply, model_id)
+        #total_score = sum(scores.values())
+        #judged.append((lbl, agg_reply, total_score, scores))
+    #judged.sort(key=lambda x: x[2], reverse=True)
+    #best_lbl, best_text, best_score, best_scores = judged[0]
     # Optionally print/log: print(f"Best: {best_lbl} ({best_score}) Scores: {best_scores}")
-    return best_text
+    return agg_reply
 
 # ========== PATIENT SIMULATION + SESSION LOGIC ==========
 
 def patient_turn(dialogue: list[dict]) -> str:
-    hist = [{"role": "system", "content": PATIENT_PROMPT}]
-    for turn in dialogue[-HIST_KEEP:]:
-        if turn["role"] == "assistant":
-            hist.append({"role": "user", "content": turn["content"]})
-        else:
-            hist.append({"role": "assistant", "content": turn["content"]})
-    return call_together(
-        PATIENT_MODEL,
+    hist = [{"role": "system", "content": PATIENT_PROMPT}] + dialogue[-HIST_KEEP:]
+
+    response = call_gemini(
         hist,
-        max_tokens=PATI_MAX_TOKENS,
         temperature=0.8
     )
+    dialogue.append({"role": "user", "content": response})
+    return response
 
 def parse_patient_rating(patient_response: str) -> tuple[int, str]:
-    try:
-        data = json.loads(patient_response)
-        rating = int(data.get("rating", -1))
-        explanation = data.get("explanation", "")
-        if 1 <= rating <= 10:
-            return rating, explanation
-    except Exception:
-        pass
     match = re.search(r"\b([1-9]|10)\b", patient_response)
     if match:
         rating = int(match.group(1))
@@ -702,16 +672,15 @@ def parse_patient_rating(patient_response: str) -> tuple[int, str]:
 
 def baseline_reply(model_id, dialogue):
     msgs = [{"role": "system", "content": SYSTEM_PROMPT}] + dialogue[-HIST_KEEP:]
-    return call_together(
-        model_id,
+    response =  call_gemini(
         msgs,
-        max_tokens=THERA_MAX_TOKENS,
         temperature=0.6,
-        stop=STOP_SEQ
     )
+    dialogue.append({"role": "assistant", "content": response})
+    return response
 
-def run_session_with_ratings_baseline(label, model_id, turns=12):
-    print("\n" + "=" * 24, label, "=" * 24)
+def run_session_with_ratings_baseline(turns=8):
+    print("\n" + "=" * 24, "Baseline", "=" * 24)
     dialogue = []
     opening_therapist_prompt = (
         "Before we start, on a scale of 1 to 10, how are you feeling today? "
@@ -720,31 +689,30 @@ def run_session_with_ratings_baseline(label, model_id, turns=12):
     dialogue.append({"role": "assistant", "content": opening_therapist_prompt})
     print("\nTherapist (opening):", opening_therapist_prompt)
     patient = patient_turn(dialogue)
-    dialogue.append({"role": "user", "content": patient})
     print("\nPatient (initial rating):", patient)
-    initial_rating, initial_expl = parse_patient_rating(patient)
+    initial_rating, initial_expl = parse_patient_rating(patient) #where is this used?
     for _ in range(turns - 1):
-        therapist = baseline_reply(model_id, dialogue)
-        dialogue.append({"role": "assistant", "content": therapist})
+        therapist = baseline_reply(dialogue)
+        #dialogue.append({"role": "assistant", "content": therapist})
         print("\nTherapist:", therapist)
         patient = patient_turn(dialogue)
-        dialogue.append({"role": "user", "content": patient})
+        #dialogue.append({"role": "user", "content": patient})
         print("\nPatient:", patient)
     final_therapist_prompt = (
         "Before we finish, on a scale of 1 to 10, how do you feel now? "
         "Please provide a number and briefly explain why."
     )
-    dialogue.append({"role": "assistant", "content": final_therapist_prompt})
+    #dialogue.append({"role": "assistant", "content": final_therapist_prompt})
     print("\nTherapist (closing):", final_therapist_prompt)
     patient = patient_turn(dialogue)
-    dialogue.append({"role": "user", "content": patient})
+    #dialogue.append({"role": "user", "content": patient})
     print("\nPatient (final rating):", patient)
     final_rating, final_expl = parse_patient_rating(patient)
     print("\n" + "=" * 60)
     return initial_rating, final_rating
 
-def run_session_with_ratings(label, therapist_fn, turns=8):
-    print("\n" + "=" * 24, label, "=" * 24)
+def run_session_with_ratings(therapist_fn, turns=8):
+    print("\n" + "=" * 24, "Ensemble", "=" * 24)
     dialogue = []
     opening_therapist_prompt = (
         "Before we start, on a scale of 1 to 10, how are you feeling today? "
@@ -753,15 +721,15 @@ def run_session_with_ratings(label, therapist_fn, turns=8):
     dialogue.append({"role": "assistant", "content": opening_therapist_prompt})
     print("\nTherapist (opening):", opening_therapist_prompt)
     patient = patient_turn(dialogue)
-    dialogue.append({"role": "user", "content": patient})
+    #dialogue.append({"role": "user", "content": patient})
     print("\nPatient (initial rating):", patient)
     initial_rating, initial_expl = parse_patient_rating(patient)
     for _ in range(turns - 1):
         therapist = therapist_fn(dialogue)
-        dialogue.append({"role": "assistant", "content": therapist})
+        #dialogue.append({"role": "assistant", "content": therapist})
         print("\nTherapist:", therapist)
         patient = patient_turn(dialogue)
-        dialogue.append({"role": "user", "content": patient})
+        #dialogue.append({"role": "user", "content": patient})
         print("\nPatient:", patient)
     final_therapist_prompt = (
         "Before we finish, on a scale of 1 to 10, how do you feel now? "
@@ -776,23 +744,14 @@ def run_session_with_ratings(label, therapist_fn, turns=8):
     print("\n" + "=" * 60)
     return initial_rating, final_rating
 
-def run_ensemble_session(label, model_id, turns=12):
-    def _therapist_fn(dlg):
-        return ensemble_reply(dlg, model_id)
-    return run_session_with_ratings(f"Ensemble – {label}", _therapist_fn, turns)
+def run_ensemble_session(turns=12):
+    return run_session_with_ratings(ensemble_reply, turns)
 
 # ========== MAIN ENTRY ==========
 if __name__ == "__main__":
     print("\n### COMPARISON: Ensemble (various engines) vs Baselines ###\n")
     for idx, scenario in enumerate(PATIENT_SCENARIOS, start=100):
         PATIENT_PROMPT = SCENARIO_START + scenario + SCENARIO_END
-        print(f"\n########## SCENARIO {idx:03d} ##########\n")
-        for lbl, mid in THERAPIST_ENGINES.items():
-            run_ensemble_session(lbl, mid, turns=8)
-        for lbl, mid in BASELINE_MODELS.items():
-            try:
-                run_session_with_ratings_baseline(f"Baseline – {lbl}", mid, turns=8)
-            except Exception:
-                print(f"\n[Skipping {lbl} – model not available]")
-                traceback.print_exc(limit=1)
-
+        print(f"\n########## SCENARIO {idx} ##########\n")
+        run_ensemble_session(turns=8)
+        run_session_with_ratings_baseline(turns=8)
